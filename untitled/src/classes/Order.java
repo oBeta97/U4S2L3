@@ -64,4 +64,16 @@ public class Order {
     public Customer getCustomer() {
         return customer;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "\n\tid=" + id +
+                "\n\tstatus='" + status + '\'' +
+                "\n\torderDate=" + orderDate +
+                "\n\tdeliveryDate=" + deliveryDate +
+                "\n\tproducts=\n" + products +
+                "\n\tcustomer=\n" + customer +
+                "\n}";
+    }
 }

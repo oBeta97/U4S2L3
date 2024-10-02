@@ -3,9 +3,9 @@ package classes;
 public class Customer {
     private final long id;
     private String name;
-    private int tier;
+    private String tier;
 
-    public Customer(String name, int tier) {
+    public Customer(String name, String tier) {
         this.id = hashCode();
         setName(name);
         setTier(tier);
@@ -15,7 +15,7 @@ public class Customer {
         this.name = name;
     }
 
-    public void setTier(int tier) {
+    public void setTier(String tier) {
         this.tier = tier;
     }
 
@@ -27,7 +27,16 @@ public class Customer {
         return name;
     }
 
-    public int getTier() {
+    public String getTier() {
         return tier;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "\n\tid=" + id +
+                "\n\tname='" + name + '\'' +
+                "\n\ttier='" + tier + '\'' +
+                "\n}";
     }
 }
