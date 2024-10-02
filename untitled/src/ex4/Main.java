@@ -2,6 +2,7 @@ package ex4;
 
 import classes.Order;
 import classes.Product;
+import com.github.javafaker.Faker;
 import utils.Utils;
 
 import java.time.LocalDate;
@@ -12,9 +13,19 @@ public class Main {
         System.out.println("Hello world!");
 
 
-        List<Order> randomOrders = Utils.getRandomListOfOrder(200);
+        List<Order> randomOrders = Utils.getRandomListOfOrder(100);
 
-        String cat = Utils.getRandomCategory();
+        for(Order o : randomOrders) System.out.println(o);
+
+        Faker f = new Faker();
+
+        String tier = f.leagueOfLegends().rank();
+
+        System.out.println(" ");
+        System.out.println(" ---------------------------- TIER -------------------- ");
+        System.out.println(tier);
+        System.out.println(" ------------------------------------------------ ");
+        System.out.println(" ");
 
         List<Product> res =
             randomOrders
@@ -26,7 +37,7 @@ public class Main {
                                 order.getOrderDate().
                                         isBefore(LocalDate.of(2022, 6, 4))
                     )
-                    .filter(order -> order.getCustomer().getTier().equals(cat))
+                    .filter(order -> order.getCustomer().getTier().equals(tier))
                     .flatMap(order -> order.getProducts().stream())
                     .toList()
         ;
